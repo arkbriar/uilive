@@ -10,8 +10,8 @@ import (
 )
 
 type windowSize struct {
-	rows    uint16
-	cols    uint16
+	rows uint16
+	cols uint16
 }
 
 var out *os.File

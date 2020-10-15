@@ -111,11 +111,11 @@ func (w *Writer) Flush() error {
 			escaping = false
 		default:
 			if !escaping {
+				if overFlowHandled && currentLine.Len() >= termWidth {
+					lines++
+					currentLine.Reset()
+				}
 				currentLine.Write([]byte{b})
-			}
-			if overFlowHandled && currentLine.Len() > termWidth {
-				lines++
-				currentLine.Reset()
 			}
 		}
 	}
